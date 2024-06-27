@@ -14,7 +14,7 @@ pipeline {
 echo 'hi there'
 }
 }
-stage ('deploy')
+stage (''deploy'')
 {
 stage
 {

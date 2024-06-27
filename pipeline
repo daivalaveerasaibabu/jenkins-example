@@ -1,12 +1,37 @@
-node {
-	stage 'Checkout'
-		checkout scm
+pipeline {
+    agent any
 
-	stage 'Build'
-		bat 'nuget restore SolutionName.sln'
-		bat "\"${tool 'MSBuild'}\" SolutionName.sln /p:Configuration=Release /p:Platform=\"Any CPU\" /p:ProductVersion=1.0.0.${env.BUILD_NUMBER}"
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // Add build steps here, for example:
+                // sh 'make build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add test steps here, for example:
+                // sh 'make test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Add deploy steps here, for example:
+                // sh 'make deploy'
+            }
+        }
+    }
 
-	stage 'Archive'
-		archive 'ProjectName/bin/Release/**'
-
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
 }
+

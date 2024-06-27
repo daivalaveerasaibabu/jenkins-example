@@ -1,25 +1,25 @@
 pipeline {
- agent any
+    agent any
 
- stages {
-  stage ('checkout') {
-  steps {
-  echo 'hello world'
-  }
-  }
-   stage('build')
-   {
-   steps
-   {
-   echo 'hi there'
-   }
-   }
-   stage('deploy')
-   {
-   stage
-   {
-   echo 'hi hello'
-   }
-      }
-        }
-   }
+    stages {
+        stage ('checkout') {
+            steps {
+                echo 'hello world'
+            }
+         }
+      stage ('build')
+{
+      steps
+{
+echo 'hi there'
+}
+}
+stage ('deploy')
+{
+stage
+{
+echo 'hi hello'
+}
+    }
+     }
+}
